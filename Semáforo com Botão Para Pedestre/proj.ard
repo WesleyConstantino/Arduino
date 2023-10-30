@@ -1,0 +1,58 @@
+// Pinos dos LEDs
+const int pinVermelho = 2;
+const int pinAmarelo = 1;
+const int pinVerde = 3;
+
+// Pino do botão
+const int pinBotao = 11;
+
+// Variáveis para controlar o estado do semáforo
+int estadoBotao = 0;
+
+void setup() {
+  pinMode(pinVermelho, OUTPUT);
+  pinMode(pinAmarelo, OUTPUT);
+  pinMode(pinVerde, OUTPUT);
+  pinMode(pinBotao, INPUT_PULLUP);
+}
+
+void loop() {
+  
+  estadoBotao = digitalRead(pinBotao);
+  
+  if (estadoBotao == HIGH) {  // Botão pressionado
+    // Liga o LED vermelho por 4 seg
+    digitalWrite(pinVermelho, HIGH);
+    digitalWrite(pinAmarelo, LOW);
+    digitalWrite(pinVerde, LOW);
+    delay(4000);
+    // Liga todos os LEDS por 1 seg
+    digitalWrite(pinVermelho, HIGH);
+    digitalWrite(pinAmarelo, HIGH);
+    digitalWrite(pinVerde, HIGH);
+    delay(1000);
+  }
+  
+  if (estadoBotao == LOW) {  // Botão não pressionado
+    
+  // Liga o LED vermelho e desligue os outros
+  digitalWrite(pinVermelho, HIGH);
+  digitalWrite(pinAmarelo, LOW);
+  digitalWrite(pinVerde, LOW); 
+  delay(2000);
+ 
+
+  // Liga o LED amarelo e desligue os outros
+  digitalWrite(pinVermelho, LOW);
+  digitalWrite(pinAmarelo, HIGH);
+  digitalWrite(pinVerde, LOW);
+  delay(2000);
+      
+
+  // Liga o LED verde e desligue os outros
+  digitalWrite(pinVermelho, LOW);
+  digitalWrite(pinAmarelo, LOW);
+  digitalWrite(pinVerde, HIGH); 
+  delay(2000);
+  }  
+}
