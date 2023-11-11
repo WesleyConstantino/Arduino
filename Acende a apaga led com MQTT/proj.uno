@@ -1,11 +1,3 @@
-/*
- * Curso - Controle dispositivos remotamente com ESP8266
- * Por: Fábio Souza
- * 
- * Exemplo - MQTT - Adafruit IO
- * Assina tópico no servidor MQTT
- */
-
 /************************** Configuração***********************************/
 #include "config.h"
 
